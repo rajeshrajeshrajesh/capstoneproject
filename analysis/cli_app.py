@@ -595,54 +595,51 @@ def run_both_analysis():
 
 HIST_MENU = """
 ╔══════════════════════════════════════════════════════════╗
-║        HISTORICAL DATA ANALYTICS  (2022 – 2024)         ║
-╠══════════════════════════════════════════════════════════╣
-║  1.  Temperature vs Sales                               ║
-║  2.  Monthly Revenue Trends                             ║
-║  3.  City-Level Performance                             ║
-║  4.  Rain Impact on Sales                               ║
-║  5.  Top 10 Peak Sales Days                             ║
-║  6.  Weekly Sales Trend                                 ║
-║  7.  Best Day of Week                                   ║
-║  8.  Peak Conditions (City × Temp × Rain)              ║
-║  9.  Year-over-Year Sales Growth
-║  A.  Run ALL analyses + charts                          ║
-║  0.  ← Back                                             ║
-╚══════════════════════════════════════════════════════════╝"""
+        HISTORICAL DATA ANALYTICS  (2022 – 2024)         
+══════════════════════════════════════════════════════════
+  1.  Temperature vs Sales                               
+  2.  Monthly Revenue Trends                             
+  3.  City-Level Performance                             
+  4.  Rain Impact on Sales                               
+  5.  Top 10 Peak Sales Days                             
+  6.  Weekly Sales Trend                                
+  7.  Best Day of Week                                   
+  8.  Peak Conditions (City × Temp × Rain)              
+  9.  Year-over-Year Sales Growth
+ 10.  Top 15 Products on Rainy Days
+  A.  Run ALL analyses + charts                          
+  0.  ← Back                                             
+══════════════════════════════════════════════════════════╝"""
 
 LIVE_MENU = """
 ╔══════════════════════════════════════════════════════════╗
 ║     LIVE DATA ANALYTICS  (last 5 days + today)          ║
 ╠══════════════════════════════════════════════════════════╣
-║  1.  Daily Summary (revenue + weather per day)          ║
-║  2.  Sales vs 7-Day Rolling Average                     ║
-║  3.  Temperature vs Sales Scatter                       ║
-║  4.  Rain Impact on Sales                               ║
-║  5.  Top Peak Days                                      ║
-║  6.  City-Level Performance                             ║
-║  7.  Temperature Category vs Sales                      ║
-║  8.  Peak Conditions (City × Temp × Rain)              ║
-║  A.  Run ALL analyses + charts                          ║
-║  0.  ← Back                                             ║
+  1.  Daily Summary (revenue + weather per day)          
+  2.  Sales vs 7-Day Rolling Average                     
+  3.  Temperature vs Sales Scatter                       
+  4.  Rain Impact on Sales                               
+  5.  Top Peak Days                                      
+  6.  City-Level Performance                             
+  7.  Temperature Category vs Sales                      
+  8.  Peak Conditions (City × Temp × Rain)              
+  A.  Run ALL analyses + charts                          
+  0.  ← Back                                             
 ╚══════════════════════════════════════════════════════════╝"""
 
 DATASET_MENU = """
 ╔══════════════════════════════════════════════════════════╗
 ║   Global Retail & Weather Analytics Platform  v2        ║
 ╠══════════════════════════════════════════════════════════╣
-║                                                         ║
-║  H  →  Historical  (2022–2024)                         ║
-║         Runs full raw→bronze→silver→gold pipeline       ║
-║         then opens analytics + chart menu               ║
-║                                                         ║
-║  L  →  Live  (last 5 days + today)                     ║
-║         Runs full live pipeline (CDC + medallion stack) ║
-║         then opens analytics + chart menu               ║
-║                                                         ║
-║  B  →  Both / Compare                                   ║
-║         Runs both pipelines + all comparison charts     ║
-║                                                         ║
-║  Q  →  Quit                                             ║
+                                                         
+   H  →  Historical  (2022–2024)                          
+          Runs full raw→bronze→silver→gold pipeline        
+          then opens analytics + chart menu                                                                         
+   L  →  Live  (last 5 days + today)                     
+          Runs full live pipeline (CDC + medallion stack)  
+          then opens analytics + chart menu               
+                                                              
+   Q  →  Quit                                             
 ╚══════════════════════════════════════════════════════════╝"""
 
 
