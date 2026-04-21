@@ -46,14 +46,15 @@ DEFAULT_ARGS = {
 # TASK FUNCTIONS
 # ══════════════════════════════════════════════════════════════════════════════
 
+def task_generate_weather(**ctx):
+    """Generate tomorrow's live weather JSON files into raw layer."""
+    import os; os.chdir(PROJECT_ROOT)
+    from scripts.generate_live_weather import run_daily
+    target_date_str = ctx["dag_run"].conf.get("target_date") if ctx["dag_run"].conf else None
+    target = datetime.strptime(target_date_str, "%Y-%m-%d").date() if target_date_str else None
+    run_daily(target)
+    logger.info(f"[generate_weather] complete (target={target})")
 
-def task_ingest_weather(**ctx):
-    """Pull historical weather data from Open-Meteo API → raw layer."""
-    from ingestion.api_extractor import APIExtractor
-    extractor = APIExtractor(config_path=str(PROJECT_ROOT / "configs/api_config.yaml"))
-    written = extractor.extract(entity="weather")
-    logger.info(f"[ingest_weather] Written {len(written)} file(s)")
-    return [str(p) for p in written]
 
 def task_generate_retail(**ctx):
     """Generate tomorrow's live retail CSV files into manual-uploads."""
