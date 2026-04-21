@@ -594,9 +594,9 @@ def run_both_analysis():
 # ═══════════════════════════════════════════════════════════════════════
 
 HIST_MENU = """
-╔══════════════════════════════════════════════════════════╗
-        HISTORICAL DATA ANALYTICS  (2022 – 2024)         
-══════════════════════════════════════════════════════════
+═════════════════════════════════════════════════════════
+        HISTORICAL DATA ANALYTICS         
+═════════════════════════════════════════════════════════
   1.  Temperature vs Sales                               
   2.  Monthly Revenue Trends                             
   3.  City-Level Performance                             
@@ -613,7 +613,7 @@ HIST_MENU = """
 
 LIVE_MENU = """
 ╔══════════════════════════════════════════════════════════╗
-║     LIVE DATA ANALYTICS  (last 5 days + today)          ║
+║     LIVE DATA ANALYTICS                                  ║
 ╠══════════════════════════════════════════════════════════╣
   1.  Daily Summary (revenue + weather per day)          
   2.  Sales vs 7-Day Rolling Average                     
@@ -628,9 +628,9 @@ LIVE_MENU = """
 ╚══════════════════════════════════════════════════════════╝"""
 
 DATASET_MENU = """
-╔══════════════════════════════════════════════════════════╗
-║   Global Retail & Weather Analytics Platform  v2        ║
-╠══════════════════════════════════════════════════════════╣
+══════════════════════════════════════════════════════════
+  Global Retail & Weather Analytics Platform        
+══════════════════════════════════════════════════════════
                                                          
    H  →  Historical  (2022–2024)                          
           Runs full raw→bronze→silver→gold pipeline        
@@ -640,7 +640,7 @@ DATASET_MENU = """
           then opens analytics + chart menu               
                                                               
    Q  →  Quit                                             
-╚══════════════════════════════════════════════════════════╝"""
+══════════════════════════════════════════════════════════"""
 
 
 def run_historical_menu():
