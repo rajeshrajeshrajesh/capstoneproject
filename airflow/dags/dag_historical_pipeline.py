@@ -130,7 +130,19 @@ def task_fact(**ctx):
     path = FactSalesWeather().extract()
     logger.info(f"[fact] → {path}")
 
+def task_dim_product(**ctx):
+    """Build fact_sales_weather star-schema fact table."""
+    import os; os.chdir(PROJECT_ROOT)
+    from processing.gold.dim_product import dim_product
+    path = dim_product().extract()
+    logger.info(f"[fact] → {path}")
 
+def task_dim_sales_weather(**ctx):
+    """Build fact_sales_weather star-schema fact table."""
+    import os; os.chdir(PROJECT_ROOT)
+    from processing.gold.sales_weather_gold import SalesWeatherGold
+    path = SalesWeatherGold().extract()
+    logger.info(f"[fact] → {path}")
 # ══════════════════════════════════════════════════════════════════════════════
 # DAG DEFINITION
 # ══════════════════════════════════════════════════════════════════════════════
@@ -154,6 +166,8 @@ with DAG(
     gold             = PythonOperator(task_id="gold",             python_callable=task_gold)
     dim_date         = PythonOperator(task_id="dim_date",         python_callable=task_dim_date)
     dim_location     = PythonOperator(task_id="dim_location",     python_callable=task_dim_location)
+    dim_product      = PythonOperator(task_id="dim_product",      python_callable=task_dim_product)
+    sales_weather    = PythonOperator(task_id="sales_weather",    python_callable=task_dim_sales_weather)
     fact             = PythonOperator(task_id="fact",             python_callable=task_fact)
 
     # ── Task dependency graph ──────────────────────────────────────────
@@ -166,4 +180,4 @@ with DAG(
     ingest_weather >> weather_bronze >> weather_silver
     ingest_retail  >> sales_bronze   >> sales_silver
     [weather_silver, sales_silver]   >> gold
-    gold >> [dim_date, dim_location] >> fact
+    gold >> [dim_date, dim_location,dim_product,sales_weather] >> fact
